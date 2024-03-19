@@ -1,6 +1,6 @@
 const local: App.I18n.Schema = {
   system: {
-    title: 'Cat 管理'
+    title: 'Cat'
   },
   common: {
     action: '操作',
