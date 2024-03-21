@@ -158,6 +158,7 @@ const local: App.I18n.Schema = {
       common: {
         loginOrRegister: 'Login / Register',
         userNamePlaceholder: 'Please enter user name',
+        userCodePlaceholder: 'Please enter user code',
         phonePlaceholder: 'Please enter phone number',
         codePlaceholder: 'Please enter verification code',
         passwordPlaceholder: 'Please enter password',
@@ -378,6 +379,10 @@ const local: App.I18n.Schema = {
     userName: {
       required: 'Please enter user name',
       invalid: 'User name format is incorrect'
+    },
+    userCode: {
+      required: 'Please enter user code',
+      invalid: 'User code format is incorrect'
     },
     phone: {
       required: 'Please enter phone number',

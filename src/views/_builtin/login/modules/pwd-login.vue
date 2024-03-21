@@ -16,12 +16,14 @@ const { formRef, validate } = useNaiveForm();
 
 interface FormModel {
   userName: string;
+  userCode: string;
   password: string;
 }
 
 const model: FormModel = reactive({
-  userName: 'Soybean',
-  password: '123456'
+  userName: 's',
+  userCode: 's',
+  password: 'a'
 });
 
 const rules = computed<Record<keyof FormModel, App.Global.FormRule[]>>(() => {
@@ -29,18 +31,22 @@ const rules = computed<Record<keyof FormModel, App.Global.FormRule[]>>(() => {
 
   return {
     userName: formRules.userName,
+    userCode: formRules.userCode,
     password: formRules.pwd
   };
 });
 
 async function handleSubmit() {
   await validate();
-  await authStore.login(model.userName, model.password);
+  await authStore.login(model.userCode, model.userName, model.password);
 }
 </script>
 
 <template>
   <NForm ref="formRef" :model="model" :rules="rules" size="large" :show-label="false">
+    <NFormItem path="userName">
+      <NInput v-model:value="model.userCode" :placeholder="$t('page.login.common.userCodePlaceholder')" />
+    </NFormItem>
     <NFormItem path="userName">
       <NInput v-model:value="model.userName" :placeholder="$t('page.login.common.userNamePlaceholder')" />
     </NFormItem>

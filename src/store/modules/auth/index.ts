@@ -42,10 +42,10 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
    * @param userName User name
    * @param password Password
    */
-  async function login(userName: string, password: string) {
+  async function login(userCode: string, userName: string, password: string) {
     startLoading();
 
-    const { data: loginToken, error } = await fetchLogin(userName, password);
+    const { data: loginToken, error } = await fetchLogin(userCode, userName, password);
 
     if (!error) {
       const pass = await loginByToken(loginToken);
